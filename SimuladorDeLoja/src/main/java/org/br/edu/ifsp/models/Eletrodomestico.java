@@ -1,6 +1,6 @@
 package org.br.edu.ifsp.models;
 
-public class Eletrodomestico extends Produto{
+public class Eletrodomestico extends Produto implements  IMostrarDados{
     private String voltagem;
 
     public Eletrodomestico(String descricao, double precoUnitario, String voltagem) {
@@ -12,11 +12,10 @@ public class Eletrodomestico extends Produto{
         return voltagem;
     }
 
-    @Override
-    public String toString() {
-        return "Eletrodomestico{" +
-                "'\n'Descricao: '" + descricao + '\n' +
-                "'\n'Preço Unitario: " + precoUnitario+'\n'+
-                "'\n'Voltagem: '" + this.getVoltagem();
+    public void mostrarDados() {
+        System.out.println("Eletrodomestico{" +
+                "'\n'Descricao: '" + this.getDescricao() +
+                "'\n'Preço Unitario: " + this.getPrecoUnitario()+
+                "'\n'Voltagem: '" + this.getVoltagem());
     }
 }

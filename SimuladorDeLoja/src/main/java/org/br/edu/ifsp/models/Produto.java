@@ -1,8 +1,8 @@
 package org.br.edu.ifsp.models;
 
-public abstract class Produto {
-    public String descricao;
-    public double precoUnitario;
+public abstract class Produto implements IMostrarDados{
+    private String descricao;
+    private double precoUnitario;
 
     public Produto(String descricao, double precoUnitario) {
         this.descricao = descricao;
@@ -17,6 +17,10 @@ public abstract class Produto {
 
     public double getPrecoUnitario() {
         return precoUnitario;
+    }
+    public void mostrarDados() {
+        System.out.println("Descricao: " + this.getDescricao() +
+                           "Preço " + this.getPrecoUnitario());
     }
 
 }
