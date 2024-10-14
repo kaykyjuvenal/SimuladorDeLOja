@@ -69,9 +69,23 @@ public class Compra implements IMostrarDados{
         this.setValorTotalCompra(valorTotal);
     }
 
+    public void mostrarItensDaLista(){
+        if (!this.getItensDeCompra().isEmpty()) {
+            for (ItemCompra item : itensDeCompra) {
+                item.mostrarDados();
+            }
+        }else
+            System.out.println("Não tem itens na lista!");
+
+    }
 
     @Override
     public void mostrarDados() {
-
+        this.mostrarItensDaLista();
+        System.out.println(
+                "\nNumero da compra: " + this.getNumeroCompra()+ '\'' +
+                "\nValor total da compra: " + this.getValorTotalCompra() +
+                "\nValor de desconto=" + this.getValorDesconto() +
+                "\nValor à ser pago: " + this.getValorPagar());
     }
 }
