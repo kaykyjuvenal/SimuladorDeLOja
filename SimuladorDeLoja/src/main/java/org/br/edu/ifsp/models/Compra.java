@@ -9,11 +9,10 @@ public class Compra implements IMostrarDados{
     private double valorDesconto;
     private double valorPagar;
 
-    public Compra(List<ItemCompra> itensDeCompra, String numeroCompra, double valorDesconto, double valorPagar) {
+    public Compra(List<ItemCompra> itensDeCompra, String numeroCompra) {
         this.itensDeCompra = itensDeCompra;
         this.numeroCompra = numeroCompra;
-        this.valorDesconto = valorDesconto;
-        this.valorPagar = valorPagar;
+        this.calcularValorTotalCompra();
     }
 
     public List<ItemCompra> getItensDeCompra() {
@@ -69,7 +68,14 @@ public class Compra implements IMostrarDados{
                 valorTotal += (item.getValorCompra() * item.getQuantidadeComprada());
             }
         }
-        this.setValorTotalCompra(valorTotal);
+        if (valorTotal >= 5000){
+            this.setValorDesconto(0.10 * valorTotal);
+            this.setValorPagar(0.10 * valorTotal + valorTotal);
+        }
+        else{
+            this.setValorDesconto(0);
+            this.setValorPagar(valorTotal);
+        }
     }
 
     public void mostrarItensDaLista(){
