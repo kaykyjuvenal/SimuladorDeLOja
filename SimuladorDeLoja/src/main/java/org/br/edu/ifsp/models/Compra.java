@@ -9,12 +9,15 @@ public class Compra implements IMostrarDados{
     private double valorDesconto;
     private double valorPagar;
 
-    public List<ItemCompra> getItensDeCompra() {
-        return itensDeCompra;
+    public Compra(List<ItemCompra> itensDeCompra, String numeroCompra, double valorDesconto, double valorPagar) {
+        this.itensDeCompra = itensDeCompra;
+        this.numeroCompra = numeroCompra;
+        this.valorDesconto = valorDesconto;
+        this.valorPagar = valorPagar;
     }
 
-    public void setItensDeCompra(List<ItemCompra> itensDeCompra) {
-        this.itensDeCompra = itensDeCompra;
+    public List<ItemCompra> getItensDeCompra() {
+        return itensDeCompra;
     }
 
     public String getNumeroCompra() {
